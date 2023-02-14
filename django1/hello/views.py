@@ -3,16 +3,10 @@ from django.shortcuts import render
 
 
 def index(request):
-    return HttpResponse("Hola Mundo!")
-
-
-def daniel(request):
-    return HttpResponse("Hola Daniel!")
-
-
-def joha(request):
-    return HttpResponse("Hola Joha!")
+    return render(request, "hello/index.html")
 
 
 def greet(request, name):
-    return HttpResponse(f"Hola, {name.capitalize()}!")
+    return render(request, "hello/greet.html", {
+        "name": name.capitalize()
+    })
